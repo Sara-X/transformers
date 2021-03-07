@@ -201,7 +201,7 @@ def main():
     # 'text' is found. You can easily tweak this behavior (see below).
     #
     # In distributed training, the 
-    function guarantee that only one local process can concurrently
+    # function guarantee that only one local process can concurrently
     # download the dataset.
     if data_args.dataset_name is not None:
         # Downloading and loading a dataset from the hub.
