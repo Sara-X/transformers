@@ -21,8 +21,8 @@ import datasets
 
 logger = datasets.logging.get_logger(__name__)
 
-_TRAINING_FILE = "large_train.txt"
-_DEV_FILE = "large_valid.txt"
+# _TRAINING_FILE = "large_train.txt"
+# _DEV_FILE = "large_valid.txt"
 
 
 class MINDConfig(datasets.BuilderConfig):
@@ -44,7 +44,7 @@ class MIND(datasets.GeneratorBasedBuilder):
 
     def _info(self):
         return datasets.DatasetInfo(
-            description=_DESCRIPTION,
+#             description=_DESCRIPTION,
             features=datasets.Features(
                 {
                     "id": datasets.Value("string"),
