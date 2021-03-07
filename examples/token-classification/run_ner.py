@@ -214,8 +214,8 @@ def main():
             data_files["validation"] = data_args.validation_file
         if data_args.test_file is not None:
             data_files["test"] = data_args.test_file
-        extension = data_args.train_file.split(".")[-1]
-        datasets = load_dataset(extension, data_files=data_files, field="data")
+        script = '/scratch/jx880/capstone/transformers/examples/token-classification/MIND.py'
+        datasets = load_dataset(script, data_files=data_files)
     # See more about loading any type of standard or custom dataset (from files, python dict, pandas DataFrame, etc) at
     # https://huggingface.co/docs/datasets/loading_datasets.html.
 
