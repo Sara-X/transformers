@@ -86,14 +86,12 @@ class MIND(datasets.GeneratorBasedBuilder):
         """Returns SplitGenerators."""
 
         downloaded_files = {'train': '/scratch/jx880/capstone/transformers/examples/token-classification/data/small_train.txt',
-                             'valid': '/scratch/jx880/capstone/transformers/examples/token-classification/data/small_valid.txt',
-                             'test': '/scratch/jx880/capstone/transformers/examples/token-classification/data/small_test.txt',
+                             'dev': '/scratch/jx880/capstone/transformers/examples/token-classification/data/small_valid.txt'
         }
 
         return [
             datasets.SplitGenerator(name=datasets.Split.TRAIN, gen_kwargs={"filepath": downloaded_files["train"]}),
             datasets.SplitGenerator(name=datasets.Split.VALIDATION, gen_kwargs={"filepath": downloaded_files["dev"]}),
-            datasets.SplitGenerator(name=datasets.Split.TEST, gen_kwargs={"filepath": downloaded_files["test"]}),
         ]
 
     def _generate_examples(self, filepath):
@@ -101,8 +99,6 @@ class MIND(datasets.GeneratorBasedBuilder):
         with open(filepath, encoding="utf-8") as f:
             guid = 0
             tokens = []
-            pos_tags = []
-            chunk_tags = []
             ner_tags = []
             for line in f:
                 if line.startswith("-DOCSTART-") or line == "" or line == "\n":
@@ -110,8 +106,6 @@ class MIND(datasets.GeneratorBasedBuilder):
                         yield guid, {
                             "id": str(guid),
                             "tokens": tokens,
-                            "pos_tags": pos_tags,
-                            "chunk_tags": chunk_tags,
                             "ner_tags": ner_tags,
                         }
                         guid += 1
