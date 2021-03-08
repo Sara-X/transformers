@@ -214,9 +214,9 @@ def main():
             data_files["validation"] = data_args.validation_file
         if data_args.test_file is not None:
             data_files["test"] = data_args.test_file
-        if data_args.script is not None:
-            script = data_args.script
-#         script = '/scratch/jx880/capstone/transformers/examples/token-classification/MIND.py'
+#         if data_args.script is not None:
+#             script = data_args.script
+        script = '/scratch/jx880/capstone/transformers/examples/token-classification/MIND.py'
 #         script = '/scratch/jx880/capstone/transformers/examples/token-classification/data/dataloader/conll2003.py'
         datasets = load_dataset(script, data_files=data_files)
     # See more about loading any type of standard or custom dataset (from files, python dict, pandas DataFrame, etc) at
