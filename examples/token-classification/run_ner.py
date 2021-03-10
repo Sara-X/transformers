@@ -339,6 +339,7 @@ def main():
 #     metric = load_metric("seqeval")
 
     def accuracy_score(y_true, y_pred):
+#         from: https://github.com/chakki-works/seqeval/blob/master/seqeval/metrics/sequence_labeling.py
         """Accuracy classification score.
         In multilabel classification, this function computes subset accuracy:
         the set of labels predicted for a sample must *exactly* match the
