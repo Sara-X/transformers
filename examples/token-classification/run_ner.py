@@ -338,6 +338,35 @@ def main():
     # Metrics
 #     metric = load_metric("seqeval")
 
+    def accuracy_score(y_true, y_pred):
+        """Accuracy classification score.
+        In multilabel classification, this function computes subset accuracy:
+        the set of labels predicted for a sample must *exactly* match the
+        corresponding set of labels in y_true.
+        Args:
+            y_true : 2d array. Ground truth (correct) target values.
+            y_pred : 2d array. Estimated targets as returned by a tagger.
+        Returns:
+            score : float.
+        Example:
+            >>> from seqeval.metrics import accuracy_score
+            >>> y_true = [['O', 'O', 'O', 'B-MISC', 'I-MISC', 'I-MISC', 'O'], ['B-PER', 'I-PER', 'O']]
+            >>> y_pred = [['O', 'O', 'B-MISC', 'I-MISC', 'I-MISC', 'I-MISC', 'O'], ['B-PER', 'I-PER', 'O']]
+            >>> accuracy_score(y_true, y_pred)
+            0.80
+        """
+        if any(isinstance(s, list) for s in y_true):
+            y_true = [item for sublist in y_true for item in sublist]
+            y_pred = [item for sublist in y_pred for item in sublist]
+
+        nb_correct = sum(y_t == y_p for y_t, y_p in zip(y_true, y_pred))
+        nb_true = len(y_true)
+
+        score = nb_correct / nb_true
+
+        return score
+    
+    
     def compute_metrics(p):
         predictions, labels = p
         predictions = np.argmax(predictions, axis=2)
@@ -356,7 +385,8 @@ def main():
         print("true_predictions", true_predictions)
         print("true_labels", true_labels)
         
-        results = metric.compute(predictions=true_predictions, references=true_labels)
+        results = {}
+        results["overall_accuracy"] = accuracy_score(true_predictions, true_labels)
         if data_args.return_entity_level_metrics:
             # Unpack nested dictionaries
             final_results = {}
@@ -369,10 +399,11 @@ def main():
             return final_results
         else:
             return {
-                "precision": results["overall_precision"],
-                "recall": results["overall_recall"],
-                "f1": results["overall_f1"],
+#                 "precision": results["overall_precision"],
+#                 "recall": results["overall_recall"],
+#                 "f1": results["overall_f1"],
                 "accuracy": results["overall_accuracy"],
+#                 "accuracy":results
             }
 
     # Initialize our Trainer
