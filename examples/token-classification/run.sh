@@ -15,7 +15,7 @@ python3 run_ner.py \
   --train_file /scratch/jx880/capstone/transformers/examples/token-classification/data/large_train.txt \
   --validation_file /scratch/jx880/capstone/transformers/examples/token-classification/data/large_dev.txt \
   --test_file /scratch/jx880/capstone/transformers/examples/token-classification/data/large_test.txt \
-  --output_dir /scratch/jx880/capstone/transformers/examples/token-classification/ner_results_large \
+  --output_dir /scratch/jx880/capstone/transformers/examples/token-classification/ner_results_large_pred \
   --do_train \
   --do_eval \
   --do_predict
