@@ -85,13 +85,15 @@ class MIND(datasets.GeneratorBasedBuilder):
     def _split_generators(self, dl_manager):
         """Returns SplitGenerators."""
 
-        downloaded_files = {'train': '/scratch/jx880/capstone/transformers/examples/token-classification/data/small_train.txt',
-                             'dev': '/scratch/jx880/capstone/transformers/examples/token-classification/data/small_valid.txt'
+        downloaded_files = {'train': '/scratch/jx880/capstone/transformers/examples/token-classification/data/large_train.txt',
+                             'dev': '/scratch/jx880/capstone/transformers/examples/token-classification/data/large_dev.txt',
+                            'test': '/scratch/jx880/capstone/transformers/examples/token-classification/data/large_test.txt'
         }
 
         return [
             datasets.SplitGenerator(name=datasets.Split.TRAIN, gen_kwargs={"filepath": downloaded_files["train"]}),
             datasets.SplitGenerator(name=datasets.Split.VALIDATION, gen_kwargs={"filepath": downloaded_files["dev"]}),
+            datasets.SplitGenerator(name=datasets.Split.TEST, gen_kwargs={"filepath": downloaded_files["test"]}),
         ]
 
     def _generate_examples(self, filepath):
