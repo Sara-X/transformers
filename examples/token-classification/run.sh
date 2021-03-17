@@ -14,6 +14,7 @@ python3 run_ner.py \
   --model_name_or_path bert-base-uncased \
   --train_file /scratch/jx880/capstone/transformers/examples/token-classification/data/large_train.txt \
   --validation_file /scratch/jx880/capstone/transformers/examples/token-classification/data/large_dev.txt \
+  --test_file /scratch/jx880/capstone/transformers/examples/token-classification/data/large_test.txt \
   --output_dir /scratch/jx880/capstone/transformers/examples/token-classification/ner_results_large \
   --do_train \
   --do_eval \
