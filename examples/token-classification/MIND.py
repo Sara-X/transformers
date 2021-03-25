@@ -51,30 +51,7 @@ class MIND(datasets.GeneratorBasedBuilder):
                     "tokens": datasets.Sequence(datasets.Value("string")),
                     "ner_tags": datasets.Sequence(
                         datasets.features.ClassLabel(
-                            names=[
-                                'A',
-                                'B',
-                                'C',
-                                'E',
-                                'F',
-                                'G',
-                                'H',
-                                'I',
-                                'J',
-                                'K',
-                                'L',
-                                'M',
-                                'N',
-                                'None',
-                                'O',
-                                'P',
-                                'Q',
-                                'R',
-                                'S',
-                                'U',
-                                'V',
-                                'W',
-                                'Y']
+                            names=['O', 'B-P', 'I-P', 'E-P', 'B-J', 'I-J', 'E-J', 'B-O', 'I-O', 'E-O', 'B-C', 'I-C', 'E-C', 'B-G', 'I-G', 'E-G', 'B-H', 'I-H', 'E-H', 'B-V', 'I-V', 'E-V', 'B-W', 'I-W', 'E-W', 'B-F', 'I-F', 'E-F', 'B-U', 'I-U', 'E-U', 'B-N', 'I-N', 'E-N', 'B-S', 'I-S', 'E-S', 'B-M', 'I-M', 'E-M', 'B-E', 'I-E', 'E-E', 'B-L', 'I-L', 'E-L', 'B-Y', 'I-Y', 'E-Y', 'B-K', 'I-K', 'E-K', 'B-B', 'I-B', 'E-B', 'B-R', 'I-R', 'E-R', 'B-Q', 'I-Q', 'E-Q', 'B-A', 'I-A', 'E-A', 'B-I', 'I-I', 'E-I']
                         )
                     ),
                 }
