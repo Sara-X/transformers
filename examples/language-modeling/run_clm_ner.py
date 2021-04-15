@@ -229,8 +229,8 @@ def main():
         if data_args.validation_file is not None:
             data_files["validation"] = data_args.validation_file
 #         why there is no test?
-        if data_args.test_file is not None:
-            data_files["test"] = data_args.test_file
+#         if data_args.test_file is not None:
+#             data_files["test"] = data_args.test_file
 #         extension = (
 #             data_args.train_file.split(".")[-1]
 #             if data_args.train_file is not None
