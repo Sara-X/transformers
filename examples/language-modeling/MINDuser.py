@@ -9,7 +9,7 @@ import datasets
 class MINDuserConfig(datasets.BuilderConfig):
     """BuilderConfig for GLUE."""
 
-    def __init__(self, data_url, **kwargs):
+    def __init__(self, **kwargs):
         """BuilderConfig for Wikitext
 
         Args:
