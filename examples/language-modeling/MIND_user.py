@@ -51,13 +51,13 @@ class MINDuser(datasets.GeneratorBasedBuilder):
         """Returns SplitGenerators."""
         downloaded_files = {'train': '/scratch/jx880/capstone/transformers/examples/language-modeling/data/train_user_entities.txt',
                              'dev': '/scratch/jx880/capstone/transformers/examples/language-modeling/data/dev_user_entities.txt',
-                            'test': '/scratch/jx880/capstone/transformers/examples/language-modeling/data/test_user_entities.txt'
+#                             'test': '/scratch/jx880/capstone/transformers/examples/language-modeling/data/test_user_entities.txt'
         }
 
         return [
             datasets.SplitGenerator(name=datasets.Split.TRAIN, gen_kwargs={"filepath": downloaded_files["train"]}),
             datasets.SplitGenerator(name=datasets.Split.VALIDATION, gen_kwargs={"filepath": downloaded_files["dev"]}),
-            datasets.SplitGenerator(name=datasets.Split.TEST, gen_kwargs={"filepath": downloaded_files["test"]}),
+#             datasets.SplitGenerator(name=datasets.Split.TEST, gen_kwargs={"filepath": downloaded_files["test"]}),
        
                         ]
 
