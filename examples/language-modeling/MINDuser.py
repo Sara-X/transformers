@@ -32,8 +32,6 @@ class MINDuser(datasets.GeneratorBasedBuilder):
     def _info(self):
         # TODO(wikitext): Specifies the datasets.DatasetInfo object
         return datasets.DatasetInfo(
-            # This is the description that will appear on the datasets page.
-            description=_DESCRIPTION,
             # datasets.features.FeatureConnectors
             features=datasets.Features(
                 {
