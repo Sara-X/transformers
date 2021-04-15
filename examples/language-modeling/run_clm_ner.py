@@ -261,7 +261,7 @@ def main():
     else:
         config = CONFIG_MAPPING[model_args.model_type]()
         logger.warning("You are instantiating a new config instance from scratch.")
-
+    config.num_hidden_layers = 2
 #     tokenizer_kwargs = {
 #         "cache_dir": model_args.cache_dir,
 #         "use_fast": model_args.use_fast_tokenizer,
