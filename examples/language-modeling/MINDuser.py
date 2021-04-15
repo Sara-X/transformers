@@ -35,7 +35,7 @@ class MINDuser(datasets.GeneratorBasedBuilder):
             # datasets.features.FeatureConnectors
             features=datasets.Features(
                 {
-                    "input_ids": datasets.Value("list")
+                    "input_ids": datasets.Sequence(datasets.Value("int64")),
                     # These are the features of your dataset like images, labels ...
                 }
             ),
