@@ -26,7 +26,7 @@ class MINDuser(datasets.GeneratorBasedBuilder):
     # TODO(wikitext_103): Set up version.
 #     VERSION = datasets.Version("0.1.0")
     BUILDER_CONFIGS = [
-       MINDuserConfig(name="MINDuser", version = datasets.Version("1.0.0"), description = "MIND user dataset"
+       MINDuserConfig(name="MINDuser", version = datasets.Version("1.0.0"), description = "MIND user dataset")
     ]
 
     def _info(self):
