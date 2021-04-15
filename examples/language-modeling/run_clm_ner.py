@@ -228,14 +228,18 @@ def main():
             data_files["train"] = data_args.train_file
         if data_args.validation_file is not None:
             data_files["validation"] = data_args.validation_file
-        extension = (
-            data_args.train_file.split(".")[-1]
-            if data_args.train_file is not None
-            else data_args.validation_file.split(".")[-1]
-        )
-        if extension == "txt":
-            extension = "text"
-        datasets = load_dataset(extension, data_files=data_files)
+#         why there is no test?
+        if data_args.test_file is not None:
+            data_files["test"] = data_args.test_file
+#         extension = (
+#             data_args.train_file.split(".")[-1]
+#             if data_args.train_file is not None
+#             else data_args.validation_file.split(".")[-1]
+#         )
+#         if extension == "txt":
+#             extension = "text"
+        script = '/scratch/jx880/capstone/transformers/examples/language-modeling/MINDuser.py'
+        datasets = load_dataset(script, data_files=data_files)
     # See more about loading any type of standard or custom dataset (from files, python dict, pandas DataFrame, etc) at
     # https://huggingface.co/docs/datasets/loading_datasets.html.
 
@@ -298,14 +302,18 @@ def main():
 #     text_column_name = "text" if "text" in column_names else column_names[0]
 
     def tokenize(example):
-        
+        processed_example = examples.copy()
+#         print(examples)
+        mask = [1 for i in range(len(examples['input_ids']))]
+        processed_example['attention_mask'] = mask
+        return processed_example
     
-    def tokenize_function(examples):
-        return tokenize(examples[text_column_name])
+#     def tokenize_function(examples):
+#         return tokenize(examples)
 
     tokenized_datasets = datasets.map(
-        tokenize_function,
-        batched=True,
+        tokenize,
+        batched=False,
         num_proc=data_args.preprocessing_num_workers,
 #         remove_columns=column_names,
         load_from_cache_file=not data_args.overwrite_cache,
@@ -330,7 +338,7 @@ def main():
     # Main data processing function that will concatenate all texts from our dataset and generate chunks of block_size.
     def group_texts(examples):
         # Concatenate all texts.
-        print(examples)
+#         print(examples)
         concatenated_examples = {}
         concatenated_examples = {k: sum([[examples[k]]], []) for k in examples.keys()}
         total_length = len(concatenated_examples[list(examples.keys())[0]])
@@ -365,7 +373,7 @@ def main():
         args=training_args,
         train_dataset=lm_datasets["train"] if training_args.do_train else None,
         eval_dataset=lm_datasets["validation"] if training_args.do_eval else None,
-        tokenizer=tokenizer,
+        tokenizer=None,
         # Data collator will default to DataCollatorWithPadding, so we change it.
         data_collator=default_data_collator,
     )
