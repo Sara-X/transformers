@@ -53,8 +53,8 @@ class MINDuser(datasets.GeneratorBasedBuilder):
         }
 
         return [
-            datasets.SplitGenerator(name=datasets.Split.TRAIN, gen_kwargs={"filepath": downloaded_files["train"]}),
-            datasets.SplitGenerator(name=datasets.Split.VALIDATION, gen_kwargs={"filepath": downloaded_files["dev"]}),
+            datasets.SplitGenerator(name=datasets.Split.TRAIN, gen_kwargs={"data_file": downloaded_files["train"]}),
+            datasets.SplitGenerator(name=datasets.Split.VALIDATION, gen_kwargs={"data_file": downloaded_files["dev"]}),
 #             datasets.SplitGenerator(name=datasets.Split.TEST, gen_kwargs={"filepath": downloaded_files["test"]}),
        
                         ]
