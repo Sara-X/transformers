@@ -65,8 +65,10 @@ class MINDuser(datasets.GeneratorBasedBuilder):
         # TODO(wikitext): Yields (key, example) tuples from the dataset
         with open(data_file, encoding="utf-8") as f:
             for idx, row in enumerate(f):
+                if len(row) == 1:
+                    continue
                 str_list = row.strip().split(" ")
-                logger.info(str_list)
+#                 logger.info(str_list)
                 int_list = [int(num) for num in str_list]
                 
                 yield idx, {"input_ids": int_list}
