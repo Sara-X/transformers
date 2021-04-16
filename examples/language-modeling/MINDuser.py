@@ -59,7 +59,7 @@ class MINDuser(datasets.GeneratorBasedBuilder):
        
                         ]
 
-    def _generate_examples(self, data_file, split):
+    def _generate_examples(self, data_file):
 
         """Yields examples."""
         # TODO(wikitext): Yields (key, example) tuples from the dataset
