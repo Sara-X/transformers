@@ -269,6 +269,8 @@ def main():
     config.eos_token_id = 0
     config.embd = 256
     
+    logger.info(config)
+    
 #     tokenizer_kwargs = {
 #         "cache_dir": model_args.cache_dir,
 #         "use_fast": model_args.use_fast_tokenizer,
