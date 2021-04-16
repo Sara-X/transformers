@@ -66,6 +66,8 @@ class MINDuser(datasets.GeneratorBasedBuilder):
         with open(data_file, encoding="utf-8") as f:
             for idx, row in enumerate(f):
                 str_list = row.strip().split(" ")
+                logger.info(str_list)
                 int_list = [int(num) for num in str_list]
+                
                 yield idx, {"input_ids": int_list}
 
