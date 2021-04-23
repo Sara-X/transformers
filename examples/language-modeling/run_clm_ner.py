@@ -242,6 +242,10 @@ def main():
         datasets = load_dataset(script, data_files=data_files)
     # See more about loading any type of standard or custom dataset (from files, python dict, pandas DataFrame, etc) at
     # https://huggingface.co/docs/datasets/loading_datasets.html.
+    
+    data_arrays = datasets['train']['input_ids']
+    data_arrays.extend(datasets['validation']['input_ids'])
+    pad_size = max(list(map(len, data_arrays)))
 
     # Load pretrained model and tokenizer
     #
@@ -313,7 +317,8 @@ def main():
     def tokenize(examples):
         processed_example = examples.copy()
 #         print(examples)
-        mask = [1 for i in range(len(examples['input_ids']))]
+        processed_example['input_ids'] += [0] * (pad_size - len(examples['input_ids']))
+        mask = [1 for i in range(len(examples['input_ids']))] + [0] * (pad_size - len(examples['input_ids']))
         processed_example['attention_mask'] = mask
         return processed_example
     
