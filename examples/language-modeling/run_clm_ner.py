@@ -263,7 +263,7 @@ def main():
         logger.warning("You are instantiating a new config instance from scratch.")
     
     config.n_layer = 6
-    config.vocab_size = 40000
+    config.vocab_size = 50257
     config.sep_token_id = 0
     config.bos_token_id = 0
     config.eos_token_id = 0
