@@ -310,7 +310,7 @@ def main():
 #         column_names = datasets["validation"].column_names
 #     text_column_name = "text" if "text" in column_names else column_names[0]
 
-    def tokenize(example):
+    def tokenize(examples):
         processed_example = examples.copy()
 #         print(examples)
         mask = [1 for i in range(len(examples['input_ids']))]
