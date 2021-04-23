@@ -298,7 +298,7 @@ def main():
 #         )
 #     else:
 #         logger.info("Training new model from scratch")
-      model = AutoModelForCausalLM.from_config(config)
+    model = AutoModelForCausalLM.from_config(config)
 
 #     model.resize_token_embeddings(len(tokenizer))
 
