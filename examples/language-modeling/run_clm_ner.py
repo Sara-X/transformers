@@ -287,18 +287,18 @@ def main():
 #             "You can do it from another script, save it, and load it from here, using --tokenizer_name."
 #         )
 
-    if model_args.model_name_or_path:
-        model = AutoModelForCausalLM.from_pretrained(
-            model_args.model_name_or_path,
-            from_tf=bool(".ckpt" in model_args.model_name_or_path),
-            config=config,
-            cache_dir=model_args.cache_dir,
-            revision=model_args.model_revision,
-            use_auth_token=True if model_args.use_auth_token else None,
-        )
-    else:
-        logger.info("Training new model from scratch")
-        model = AutoModelForCausalLM.from_config(config)
+#     if model_args.model_name_or_path:
+#         model = AutoModelForCausalLM.from_pretrained(
+#             model_args.model_name_or_path,
+#             from_tf=bool(".ckpt" in model_args.model_name_or_path),
+#             config=config,
+#             cache_dir=model_args.cache_dir,
+#             revision=model_args.model_revision,
+#             use_auth_token=True if model_args.use_auth_token else None,
+#         )
+#     else:
+#         logger.info("Training new model from scratch")
+      model = AutoModelForCausalLM.from_config(config)
 
 #     model.resize_token_embeddings(len(tokenizer))
 
