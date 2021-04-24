@@ -303,6 +303,8 @@ def main():
 #     else:
 #         logger.info("Training new model from scratch")
     model = AutoModelForCausalLM.from_config(config)
+    logger.info("***** Model After Reconfiguration *****")
+    logger.info(model.config)
 
 #     model.resize_token_embeddings(len(tokenizer))
 
