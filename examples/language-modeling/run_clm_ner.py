@@ -271,7 +271,7 @@ def main():
     config.sep_token_id = 0
     config.bos_token_id = 0
     config.eos_token_id = 0
-    config.embd = 256
+    config.n_embd = 256
     
     logger.info(config)
     
