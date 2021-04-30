@@ -16,4 +16,6 @@ python3 run_clm_ner.py \
   --validation_file /scratch/jx880/capstone/transformers/examples/language-modeling/data/dev_user_entities.txt \
   --output_dir /scratch/jx880/capstone/transformers/examples/language-modeling/results \
   --do_train \
-  --do_eval
+  --do_eval \
+  --per_device_train_batch_size 4 \
+  --per_device_eval_batch_size 4
