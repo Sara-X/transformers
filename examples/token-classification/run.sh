@@ -11,11 +11,13 @@
 source $HOME/.bashrc
 
 python3 run_ner.py \
-  --model_name_or_path bert-base-uncased \
+  --model_name_or_path bert-base-cased \
   --train_file /scratch/jx880/capstone/transformers/examples/token-classification/data/large_train.txt \
   --validation_file /scratch/jx880/capstone/transformers/examples/token-classification/data/large_dev.txt \
   --test_file /scratch/jx880/capstone/transformers/examples/token-classification/data/large_test.txt \
-  --output_dir /scratch/jx880/capstone/transformers/examples/token-classification/ner_results_large_pred \
+  --output_dir /scratch/jx880/capstone/transformers/examples/token-classification/ner_results_large_pred3 \
+  --per_device_train_batch_size 4 \
+  --per_device_eval_batch_size 4 \
   --do_train \
   --do_eval \
   --do_predict
