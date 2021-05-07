@@ -237,7 +237,7 @@ def main():
 #         )
 #         if extension == "txt":
 #             extension = "text"
-        script = '/scratch/jx880/capstone/transformers/examples/language-modeling/MINDuser.py'
+        script = '/scratch/jx880/capstone/transformers/examples/language-modeling/MINDuser_small.py'
         datasets = load_dataset(script, data_files=data_files)
     # See more about loading any type of standard or custom dataset (from files, python dict, pandas DataFrame, etc) at
     # https://huggingface.co/docs/datasets/loading_datasets.html.
