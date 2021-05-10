@@ -14,7 +14,7 @@ python3 run_clm_ner.py \
   --model_name_or_path gpt2 \
   --train_file /scratch/jx880/capstone/transformers/examples/language-modeling/data/train_user_entities.txt \
   --validation_file /scratch/jx880/capstone/transformers/examples/language-modeling/data/dev_user_entities.txt \
-  --output_dir /scratch/jx880/capstone/transformers/examples/language-modeling/results_large_768 \
+  --output_dir /scratch/jx880/capstone/transformers/examples/language-modeling/results_large_768_official_partition \
   --do_train \
   --do_eval \
   --num_train_epochs 6 \
