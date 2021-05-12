@@ -1,4 +1,3 @@
-  
 #!/usr/bin/bash
 #
 #SBATCH --job-name=myTrainTask2GPU
