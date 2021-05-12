@@ -10,4 +10,4 @@
 #SBATCH --time=24:00:00
 source $HOME/.bashrc
 
-python3 impression_score.py
+python3 impression_score.py \
